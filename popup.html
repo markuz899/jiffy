@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="top">
+      <img class="logo" src="icons/icon48.png" alt="" />
+      <div class="brand">
+        <span class="name">Jiffy</span>
+        <span class="site" id="site"></span>
+      </div>
+      <button class="icon-btn" id="refresh" title="Refresh" hidden>
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M13.5 8a5.5 5.5 0 1 1-1.6-3.9M13.5 2.5v3h-3" />
+        </svg>
+      </button>
+      <img class="avatar" id="avatar" alt="" hidden />
+    </header>
+
+    <section class="setup" id="setup" hidden>
+      <img src="icons/icon128.png" alt="" width="72" height="72" />
+      <h1>Connect your Jira</h1>
+      <p>Enter your Jira Cloud site. Jiffy uses the session you're already signed in with.</p>
+      <form id="setup-form">
+        <label class="domain-field">
+          <span class="sr-only">Jira site</span>
+          <input id="domain" placeholder="your-company" autocomplete="off" required />
+          <span class="suffix">.atlassian.net</span>
+        </label>
+        <button class="primary">Connect</button>
+      </form>
+      <p class="error" id="setup-error"></p>
+    </section>
+
+    <main id="main" hidden>
+      <div class="toolbar">
+        <label class="search">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <circle cx="7" cy="7" r="4.5" />
+            <path d="m10.5 10.5 3 3" />
+          </svg>
+          <span class="sr-only">Filter tickets</span>
+          <input id="filter" placeholder="Filter by key or title" autocomplete="off" />
+          <kbd>/</kbd>
+        </label>
+        <div class="tabs" id="tabs" role="tablist"></div>
+      </div>
+      <ul class="list" id="list"></ul>
+      <div class="state" id="state" hidden></div>
+    </main>
+
+    <footer class="bottom" id="footer" hidden>
+      <a href="#" id="your-work">Open Your work in Jira ↗</a>
+      <a href="#" id="reset">Switch site</a>
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
